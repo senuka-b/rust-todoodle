@@ -2,6 +2,9 @@ use std::process::Command;
 
 mod input;
 mod constants;
+mod enums;
+
+use enums::HomeChoices;
 
 fn main() {
     home_page();
@@ -18,13 +21,36 @@ fn home_page() {
 
     println!("{}", constants::HOME_PAGE_STRING);
 
-    let choice = input::read::read_choice(vec![1,2,3]);
+    let input = input::read::read_choice(vec![1,2,3]);
 
-    if choice == 0 {return;}
+    let choice = HomeChoices::get_option(input);
+
+    match choice {
+        Some(v) => {
+            match v {
+                HomeChoices::CreateTodo => create_todo(),
+
+                _ => ()
+            }
+        },
+
+        None => return
+        
+    }
+
 
     home_page();
 }
 
+
+fn create_todo() {
+    println!("CREATE TODO");
+
+
+
+}
+
+
 fn clear_console() {
-    Command::new("cmd").arg("/c").arg("cls");
+    print!("\x1B[2J\x1B[1;1H");
 }
