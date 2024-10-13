@@ -10,7 +10,7 @@ This simple command line to-do utility was created for myself to learn the bare 
     - Create a todo 
         - Enter a todo title
         - Enter a todo description
-        - Optional due date
+        - Due date
     - Display a todo
     - Edit a todo
     - Delete a todo
