@@ -3,6 +3,7 @@ use std::process::Command;
 mod input;
 mod constants;
 mod enums;
+mod structs;
 
 use enums::HomeChoices;
 
@@ -44,10 +45,13 @@ fn home_page() {
 
 
 fn create_todo() {
-    println!("CREATE TODO");
+    clear_console();
 
+    println!("{}", constants::CREATE_TODO);
 
+    let todo = structs::Todo::new();
 
+    println!("{}", todo.title);
 }
 
 
