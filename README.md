@@ -20,10 +20,6 @@ This simple command line to-do utility was created for myself to learn the bare 
 - Store todo information in a single `.json` file
 - Implement todo categorisation per-day
 - Display all todos:
-    - Organized by day
-    - Organized by completion
-    - Organized by due date
-    - Archived todos (completed todos)
 
 - Add colors to the UI
 - Add a simple search function
