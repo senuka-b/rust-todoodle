@@ -49,9 +49,14 @@ fn create_todo() {
 
     let todo = structs::Todo::new();
 
-    println!("{}", todo.title);
+    println!("\n\t A todo with the name \"{}\" has been created succesfully!", todo.title);
 
-    input::read::read_string("A", false);
+    let yn = input::read::yn_choice("Do you want to create another Todo?");
+
+    if yn {
+        create_todo();
+    }
+
 }
 
 

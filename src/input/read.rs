@@ -1,4 +1,4 @@
-use std::io::{self, Read, Write};
+use std::{io::{self,Write}};
 
 pub fn read_choice(choices : Vec<u32>) -> u32 {
     let mut input = String::new();
@@ -88,6 +88,35 @@ pub fn read_long_string(text: &str, exit_char: &str) -> String {
 
     }
 
-
     input
+}
+
+pub fn yn_choice(text: &str) -> bool {
+    let mut input = String::new();
+
+    print!("\n\t{text} (y/n) : ");
+    io::stdout().flush().unwrap(); 
+
+    io::stdin().read_line(&mut input).expect("Unable to read input");
+
+    if let Some(yn) = input.chars().next() {
+        let yn = yn.to_ascii_lowercase(); // Shadowing
+
+        match yn {
+            'y' => return true,
+            'n' => return false,
+            _ => {
+
+                println!("\nInvalid input. Please enter 'y' or 'n'\n");
+                
+                return yn_choice(text)
+            },
+        }
+    }
+
+    println!("\nPress n if you wanna exit!\n");
+   
+
+    yn_choice(text)
+    
 }
