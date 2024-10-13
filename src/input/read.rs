@@ -1,4 +1,4 @@
-use std::io::{self, Write};
+use std::io::{self, Read, Write};
 
 pub fn read_choice(choices : Vec<u32>) -> u32 {
     let mut input = String::new();
@@ -53,7 +53,7 @@ fn validate_choices(choices : &Vec<u32>, num : &u32 ) -> bool {
 pub fn read_string(text: &str, required: bool) -> String {
     let mut input = String::new();
 
-    print!("\t{text} : "); 
+    print!("\n\t{text} : "); 
     io::stdout().flush().unwrap(); 
 
     match io::stdin().read_line(&mut input) {
@@ -69,4 +69,25 @@ pub fn read_string(text: &str, required: bool) -> String {
 
     input
 
+}
+
+pub fn read_long_string(text: &str, exit_char: &str) -> String {
+    let mut input = String::new();
+
+    print!("\n\t{text} ({exit_char} and hit enter to end) : ");
+    io::stdout().flush().unwrap(); 
+
+
+    loop {
+        io::stdin().read_line(&mut input).expect("Unable to read input");
+
+        if input.trim().ends_with(exit_char) {
+            let _ = input.split_off(input.trim().len() - exit_char.len());
+            break;
+        }
+
+    }
+
+
+    input
 }

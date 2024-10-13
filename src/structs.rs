@@ -13,7 +13,8 @@ pub struct Todo {
 impl Todo {
     pub fn new() -> Todo {
         let title = input::read::read_string("Enter title", true);
-        let description = input::read::read_string("Enter description",  false);
+
+        let description = input::read::read_long_string("Enter description", "-1");
 
         let date_created = chrono::Utc::now().timestamp();
 

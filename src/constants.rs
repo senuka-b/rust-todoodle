@@ -16,11 +16,11 @@ pub const HOME_PAGE_STRING: &str =
 pub const CREATE_TODO: &str = 
     "\t\tCreate your Todo task!
 
-    \t\t\t[1] Enter a catchy summarized title so you remember at first glance
+    \t\t\t[✅] Enter a catchy summarized title so you remember at first glance
 
-    \t\t\t[2] Be descriptive in the description but this is optional!
+    \t\t\t[✅] Be descriptive in the description but this is optional!
 
-    \t\t\t[3] Enter the date this todo is due in the format 
+    \t\t\t[✅] Enter the date this todo is due in the format 
 
     \t\t\t\tYYYY-MM-DD HH:MM:SS (Keep HH in the 24 hour clock format)
 

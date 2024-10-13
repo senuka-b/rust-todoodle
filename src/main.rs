@@ -1,5 +1,3 @@
-use std::process::Command;
-
 mod input;
 mod constants;
 mod enums;
@@ -52,6 +50,8 @@ fn create_todo() {
     let todo = structs::Todo::new();
 
     println!("{}", todo.title);
+
+    input::read::read_string("A", false);
 }
 
 
