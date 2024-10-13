@@ -12,15 +12,15 @@ pub struct Todo {
 
 impl Todo {
     pub fn new() -> Todo {
-        let title = input::read::read_string("Enter title", true);
+        let title: String = input::read::read_string("Enter title", true);
 
-        let description = input::read::read_long_string("Enter description", "-1");
+        let description: String = input::read::read_long_string("Enter description", "-1");
 
-        let date_created = chrono::Utc::now().timestamp();
+        let date_created: i64 = chrono::Utc::now().timestamp();
 
-        let date_due = input::parse::date();
+        let date_due: i64 = input::parse::date();
 
-        let completed = false;
+        let completed: bool = false;
 
         Todo {
             title,

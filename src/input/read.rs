@@ -1,7 +1,7 @@
 use std::{io::{self,Write}};
 
 pub fn read_choice(choices : Vec<u32>) -> u32 {
-    let mut input = String::new();
+    let mut input: String = String::new();
 
     print!("\tEnter your option (0 to exit): "); // unlike println! prinl doesn't flush bc no newline so print gets skipped
     io::stdout().flush().unwrap(); // Manually flush the stdout buffer
@@ -19,7 +19,7 @@ pub fn read_choice(choices : Vec<u32>) -> u32 {
                 return num; // Exit program
             }
 
-            let is_valid = validate_choices(&choices, &num);
+            let is_valid: bool = validate_choices(&choices, &num);
 
             if is_valid {
                 return num;
@@ -51,7 +51,7 @@ fn validate_choices(choices : &Vec<u32>, num : &u32 ) -> bool {
 
 
 pub fn read_string(text: &str, required: bool) -> String {
-    let mut input = String::new();
+    let mut input: String = String::new();
 
     print!("\n\t{text} : "); 
     io::stdout().flush().unwrap(); 
@@ -72,7 +72,7 @@ pub fn read_string(text: &str, required: bool) -> String {
 }
 
 pub fn read_long_string(text: &str, exit_char: &str) -> String {
-    let mut input = String::new();
+    let mut input: String = String::new();
 
     print!("\n\t{text} ({exit_char} and hit enter to end) : ");
     io::stdout().flush().unwrap(); 
@@ -92,7 +92,7 @@ pub fn read_long_string(text: &str, exit_char: &str) -> String {
 }
 
 pub fn yn_choice(text: &str) -> bool {
-    let mut input = String::new();
+    let mut input: String = String::new();
 
     print!("\n\t{text} (y/n) : ");
     io::stdout().flush().unwrap(); 
@@ -100,7 +100,7 @@ pub fn yn_choice(text: &str) -> bool {
     io::stdin().read_line(&mut input).expect("Unable to read input");
 
     if let Some(yn) = input.chars().next() {
-        let yn = yn.to_ascii_lowercase(); // Shadowing
+        let yn: char = yn.to_ascii_lowercase(); // Shadowing
 
         match yn {
             'y' => return true,

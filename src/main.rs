@@ -20,9 +20,9 @@ fn home_page() {
 
     println!("{}", constants::HOME_PAGE_STRING);
 
-    let input = input::read::read_choice(vec![1,2,3]);
+    let input: u32 = input::read::read_choice(vec![1,2,3]);
 
-    let choice = HomeChoices::get_option(input);
+    let choice: Option<HomeChoices> = HomeChoices::get_option(input);
 
     match choice {
         Some(v) => {
@@ -47,11 +47,11 @@ fn create_todo() {
 
     println!("{}", constants::CREATE_TODO);
 
-    let todo = structs::Todo::new();
+    let todo: structs::Todo = structs::Todo::new();
 
     println!("\n\t A todo with the name \"{}\" has been created succesfully!", todo.title);
 
-    let yn = input::read::yn_choice("Do you want to create another Todo?");
+    let yn: bool = input::read::yn_choice("Do you want to create another Todo?");
 
     if yn {
         create_todo();
